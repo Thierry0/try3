@@ -1,0 +1,30 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aictuary-staging-54112-authRole",
+      "UnauthRoleArn": "arn:aws:iam::004720906935:role/amplify-aictuary-staging-54112-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::004720906935:role/amplify-aictuary-staging-54112-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-aictuary-staging-54112-deployment",
+      "UnauthRoleName": "amplify-aictuary-staging-54112-unauthRole",
+      "StackName": "amplify-aictuary-staging-54112",
+      "StackId": "arn:aws:cloudformation:us-east-2:004720906935:stack/amplify-aictuary-staging-54112/f7410620-da86-11ed-a66c-029cc0df17c8",
+      "AmplifyAppId": "dt0i6ntg7e42m"
+    },
+    "categories": {
+      "function": {
+        "openaitry1": {
+          "deploymentBucketName": "amplify-aictuary-staging-54112-deployment",
+          "openaiApiKey": "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",
+          "s3Key": "amplify-builds/openaitry1-703664494b5938622b67-build.zip"
+        }
+      },
+      "auth": {
+        "aictuarya0049865": {}
+      },
+      "api": {
+        "aictuary": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+type TopicProgress @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  topic: String!
+  practicedCount: Int!
+  lastPracticed: AWSDateTime
+  correctAnswers: Int!
+} 
