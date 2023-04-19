@@ -44,7 +44,7 @@
 import axios from "axios";
 import { API, graphqlOperation, Hub } from "aws-amplify";
 import { listTopicProgresses } from "@/graphql/queries";
-import { updateTopicProgress } from "@/graphql/mutations";
+import { updateTopicProgress, createTopicProgress } from "@/graphql/mutations";
 
 export default {
     data() {
@@ -182,17 +182,24 @@ export default {
             }
         },
         async addTopic() {
-            if (this.newTopic === '') return;
+            if (this.newTopic === "") return;
 
-            // Add the new topic to the topics array with default values
-            this.topics.push({
-                id: Date.now(), // Temporary id, replace with the id returned from the API when adding the topic
-                topic: this.newTopic,
-                practicedCount: 0,
-                correctAnswers: 0,
-            });
+            try {
+                const newTopic = {
+                    topic: this.newTopic,
+                    practicedCount: 0,
+                    correctAnswers: 0,
+                };
 
-            this.newTopic = '';
+                const response = await API.graphql(
+                    graphqlOperation(createTopicProgress, { input: newTopic })
+                );
+
+                this.topics.push(response.data.createTopicProgress);
+                this.newTopic = "";
+            } catch (error) {
+                console.error("Error adding topic:", error);
+            }
         },
     },
 };
